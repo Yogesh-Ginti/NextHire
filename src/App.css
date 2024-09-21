@@ -1,0 +1,29 @@
+/* Add this CSS to the main CSS file */
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+.filter-section {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.jobs-section {
+  flex-grow: 1;
+  overflow-y: auto;
+  height: 93vh;
+  padding-left: 20px;
+}
+
+/* Optional: To display the footer when both sections reach the end */
+.footer {
+  position: relative;
+  text-align: center;
+  padding: 10px;
+  background-color: #f8f9fa;
+}
