@@ -65,9 +65,10 @@ Adzuna API key (can be obtained from Adzuna Developers)
     Open [http://localhost:5173](http://localhost:5173) to view it in your browser.
 
 ## Usage
-Visit the homepage to search for jobs by title, location, or salary.
-Log in or sign up to save jobs to your wishlist.
-Browse job listings and view detailed job descriptions.
+- Visit the homepage to search for jobs by title, location, or salary.
+- Log in or sign up to save jobs to your wishlist.
+- Browse job listings and view detailed job descriptions.
+- add jobs on your bookmarks
 
 
 
