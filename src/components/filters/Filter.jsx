@@ -42,12 +42,12 @@ function Filter() {
   }
 
   return (
-    <div className="col-span-3 filter-section bg-white rounded-lg shadow-lg p-4 h-auto">
-      <h1 className="text-lg font-medium my-4">All Filters</h1>
+    <div className="hidden md:grid col-span-3 filter-section bg-white rounded-lg shadow-lg p-4 h-auto">
+      <h1 className="md:text-lg font-medium my-4">All Filters</h1>
       <hr></hr>
       {/* filter by department */}
       <section className="py-4">
-      <p className="text-lg font-medium">Department</p>
+      <p className="md:text-lg font-medium">Department</p>
       {jobTypes.map((job) => (
         <div key={job.title}>
           <label>

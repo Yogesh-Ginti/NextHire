@@ -6,18 +6,24 @@ import { useSelector } from "react-redux";
 import { MdDelete } from "react-icons/md";
 
 function Bookmarks() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [savedJobs, setSavedJobs] = useState([]);
-  const {isUser} = useSelector(state=> state.auth)
-  useEffect(()=>{
-    if(!isUser) navigate('/login')
-    return
-  })
+  const { isUser } = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    if (!isUser) {
+      navigate("/login");
+      return;
+    }
+  }, [isUser, navigate]);
 
   useEffect(() => {
     // Get saved jobs from local storage
     const jobs = JSON.parse(localStorage.getItem("savedJobs")) || [];
-    setSavedJobs(jobs);
+    
+    // Filter out invalid job entries (ensure jobs have an id)
+    const validJobs = jobs.filter(job => job && job.id);
+    setSavedJobs(validJobs);
   }, []);
 
   if (savedJobs.length === 0) {
@@ -30,39 +36,43 @@ function Bookmarks() {
 
   const handleDelete = (jobId) => {
     const items = JSON.parse(localStorage.getItem("savedJobs")) || [];
-    const updatedSavedJobs = items.filter(job => job.id !== jobId);  // Exclude the deleted job
-    localStorage.setItem("savedJobs", JSON.stringify(updatedSavedJobs));  // Update localStorage
-    setSavedJobs(updatedSavedJobs);  // Update state to re-render the component
+    console.log(items)
+    const updatedSavedJobs = items.filter((job) => job.id !== jobId); // Exclude the deleted job
+    localStorage.setItem("savedJobs", JSON.stringify(updatedSavedJobs)); // Update localStorage
+    setSavedJobs(updatedSavedJobs); // Update state to re-render the component
   };
-  
 
   return (
     <div className="w-[70%] m-auto p-6">
       <h1 className="text-2xl font-bold py-2">All Saved Jobs</h1>
       {savedJobs.map((job) => (
-        <div key={job.id} className="bg-blue-50 rounded-lg p-4 my-6 shadow-md">
-          <Link to={`/b/job/${job.id}`}>
-            <p className="flex justify-end">{job.created}</p>
-            <h1 className="text-xl font-semibold">{job.title}</h1>
-            <p className="font-medium opacity-80">{job.company.display_name}</p>
-            <span className="flex justify-start items-center gap-6">
-              <BsCurrencyRupee size={20} />
-              {job.salary_is_predicted === 0 ? (
-                <p>Not Disclosed</p>
-              ) : (
-                <p>{job.salary_is_predicted}</p>
-              )}
-              <IoLocationOutline size={20} />
-              <p>{job.location.display_name}</p>
-            </span>
-            <p>{job.description}</p>
-          </Link>
-          <div className="flex items-center justify-end">
-            <button className="p-1" onClick={()=>handleDelete(job.id)}><MdDelete size={23} /></button>
+        // Ensure job is valid before rendering
+        job && job.id ? (
+          <div key={job.id} className="bg-blue-50 rounded-lg p-4 my-6 shadow-md">
+            <Link to={`/b/job/${job.id}`}>
+              <p className="flex justify-end">{job.created}</p>
+              <h1 className="text-xl font-semibold">{job.title}</h1>
+              <p className="font-medium opacity-80">{job.company.display_name}</p>
+              <span className="flex justify-start items-center gap-6">
+                <BsCurrencyRupee size={20} />
+                {job.salary_is_predicted === 0 ? (
+                  <p>Not Disclosed</p>
+                ) : (
+                  <p>{job.salary_is_predicted}</p>
+                )}
+                <IoLocationOutline size={20} />
+                <p>{job.location.display_name}</p>
+              </span>
+              <p>{job.description}</p>
+            </Link>
+            <div className="flex items-center justify-end">
+              <button className="p-1" onClick={() => handleDelete(job.id)}>
+                <MdDelete size={23} />
+              </button>
             </div>
-        </div>
+          </div>
+        ) : null // Don't render invalid jobs
       ))}
-      
     </div>
   );
 }

@@ -17,8 +17,8 @@ function MainSearch() {
   }
   return (
     <>
-      <div className="bg-white my-8 mx-auto flex items-center justify-between gap-1 shadow-md rounded-full p-4 w-[70%]">
-        <div className="">
+      <div className="mx-2 my-8 md:mx-auto flex items-center md:justify-between gap-1 shadow-md rounded-full p-4 md:w-[70%]">
+        <div className="hidden md:flex">
           <FaSearch size={20} />
         </div>
         <input
@@ -26,7 +26,7 @@ function MainSearch() {
           value={design}
           type="text"
           placeholder="Enter skills/designation/companies"
-          className="w-[35%] pr-4 text-lg outline-none border-r-2"
+          className="md:w-[45%] pr-4 text-sm md:text-lg outline-none border-r-2"
         />
         
         <input
@@ -34,8 +34,16 @@ function MainSearch() {
           value={loc}
           type="text"
           placeholder="Enter location"
-          className="text-lg outline-none"
+          className="text-sm md:text-lg outline-none w-[30%]"
         />
+        <span className="hidden md:block">
+        <Button fn={handleSearch} bg={"#275df5"} color={"white"}>
+          Search
+        </Button>
+        </span>
+      </div>
+      {/* search button for small screen */}
+      <div className="md:hidden flex justify-center items-center">
         <Button fn={handleSearch} bg={"#275df5"} color={"white"}>
           Search
         </Button>

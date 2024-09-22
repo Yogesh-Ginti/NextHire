@@ -6,13 +6,13 @@ function FooterLinks() {
   return (
     <>
       {pathname == "/" ?(
-      <div className="w-[60%] grid grid-cols-3 items-center gap-3">
+      <div className=" w-full md:w-[60%]  grid grid-cols-3 items-center gap-3">
         {footerLinks.map((link, ind) => (
           <Link key={ind}>{link}</Link>
         ))}
       </div>
       ):(
-      <div className="w-[60%] grid grid-cols-3 items-center gap-3">
+      <div className="w-full md:w-[60%] grid grid-cols-3 items-center gap-3">
         {jobTypes.map((link, ind) => (
           <Link key={ind}>{link.title}</Link>
         ))}

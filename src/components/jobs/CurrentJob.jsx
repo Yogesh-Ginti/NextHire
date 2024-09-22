@@ -12,7 +12,7 @@ function CurrentJob() {
   const { jobs, status, error } = useSelector((state) => state.jobs);
   const currentJob = jobs.filter((job) => job.id == jobId);
   return (
-    <div className="w-[70%]">
+    <div className="w-full md:w-[70%]">
       {currentJob.map((job) => (
         <div key={job.id}>
           {/* top card */}
@@ -60,8 +60,8 @@ function CurrentJob() {
             <p className="text-lg font-medium">
               The details of Job are shared below :
             </p>
-            {job.description.split(/[.;,]+/).map((i) => (
-              <li>{i}</li>
+            {job.description.split(/[.;,]+/).map((i,ind) => (
+              <li key={ind}>{i}</li>
             ))}
           </div>
         </div>

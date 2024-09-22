@@ -97,7 +97,7 @@ export const footerLinks = [
   "Sitemap",
   "Credits",
   "Help center",
-  "Summons/Notices",
+  "Notices",
   "Grievances",
   "Report issue",
   "Privacy policy",

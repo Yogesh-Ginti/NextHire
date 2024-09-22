@@ -13,19 +13,19 @@ function Home() {
   })
   return (
     <>
-      <div className="w-full p-6">
-        <div className="my-8">
+      <div className="w-full md:p-6">
+        <div className="my-10 md:my-8">
           <h1 className="text-4xl font-bold text-center">Find your dream job now</h1>
           <p className="text-2xl font-normal text-center py-2">
             5 lakh+ jobs for you to explore
           </p>
         </div>
-        <MainSearch />
+        <div className="md:py-0"><MainSearch /></div>
         <div className="pt-6">
           <img
             src="https://static.naukimg.com/s/0/0/i/resume-writing-promotion/desktop/homepage/help_v1.png"
             alt="banner"
-            className="w-[70%] m-auto"
+            className="w-[90%] md:w-[70%] m-auto "
           />
         </div>
         <JobType />

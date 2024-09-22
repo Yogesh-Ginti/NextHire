@@ -12,7 +12,7 @@ function SimilarJob() {
   return (
     <div className="w-full">
       <h1 className="px-4 text-xl font-bold">Similar jobs</h1>
-      <div className="grid grid-cols-2">
+      <div className="grid grid-cols-1 md:grid-cols-2">
         {similarJob.map((job) => (
           <div key={job.id} className="bg-white rounded-lg p-4 m-4 shadow-md">
             <Link to={`/job/${job.id}`}>

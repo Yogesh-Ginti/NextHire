@@ -6,8 +6,8 @@ import AllJobs from "../../components/jobs/AllJobs";
 
 function Jobs() {
   return (
-    <div className="bg-slate-100 p-8">
-      <div className="grid grid-cols-12 gap-10 px-8">
+    <div className="bg-slate-100 md:p-8 p-3">
+      <div className="md:grid grid-cols-12 gap:2 md:gap-10 md:px-8">
         <Filter />
         <AllJobs />
       </div>

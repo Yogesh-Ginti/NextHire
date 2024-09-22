@@ -10,6 +10,7 @@ import Login from './pages/auth/Login'
 import SearchResult from './pages/search/SearchResult'
 import Bookmarks from './pages/bookmark/Bookmarks'
 import CurrentJob from './pages/bookmark/CurrentJob'
+import SearchJobDetails from './pages/search/SearchJobDetails'
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path='/jobs/:jobType' element={<Jobs />} />
           <Route path='/job/:jobId' element={<JobsDetails />} />
           <Route path='/search' element={<SearchResult />} />
+          <Route path='/s/:jobId' element={<SearchJobDetails />} />
           <Route path='/bookmarks' element={<Bookmarks />} />
           <Route path='/b/job/:jobId' element={<CurrentJob />} />
         </Routes>
