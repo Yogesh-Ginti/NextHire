@@ -4,7 +4,7 @@ import { BsCurrencyRupee } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchSearchJobs, setLocation } from "../../redux/searchSlice";
 import { useNavigate } from "react-router-dom";
-import SearchFilter from "../../components/filters/searchFilter";
+import SearchFilter from "../../components/filters/SearchFilter";
 import Bookmark from "../../components/bookmark/Bookmark"
 
 function SearchResult() {
