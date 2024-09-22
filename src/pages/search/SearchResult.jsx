@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchSearchJobs, setLocation } from "../../redux/searchSlice";
 import { useNavigate } from "react-router-dom";
 import SearchFilter from "../../components/filters/searchFilter";
-import Bookmark from "../../components/bookmark/Bookmark";
+import Bookmark from "../../components/bookmark/Bookmark"
 
 function SearchResult() {
   const navigate = useNavigate();
