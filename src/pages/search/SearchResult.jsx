@@ -57,7 +57,7 @@ function SearchResult() {
                   </span>
                   <p>{job.description}</p>
                 </div>
-                <Bookmark />
+                <Bookmark job={job} />
               </div>
             ))
           ) : (
